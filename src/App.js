@@ -1,9 +1,10 @@
 import './App.css';
+import Missions from "./components/Missions/Missions";
 
 function App() {
         return (
-            <div>
-
+            <div className={'App'}>
+                <Missions/>
             </div>
         );
 }

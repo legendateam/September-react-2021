@@ -1,0 +1,12 @@
+.mission {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #dedede;
+    height: 250px;
+    width: 98%;
+    border: 1px solid black;
+}
+img {
+    height: 150px;
+}
