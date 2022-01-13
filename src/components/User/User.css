@@ -1,0 +1,9 @@
+.user {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+h2 {
+    margin-top: 10px;
+}

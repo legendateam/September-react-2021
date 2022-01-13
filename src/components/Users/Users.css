@@ -1,0 +1,6 @@
+.users {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 600px;
+}
