@@ -1,12 +1,14 @@
+import React from 'react';
+
 import './App.css';
+import Users from "./components/Users/Users";
 
-function App() {
-        return (
-            <div>
-
-            </div>
-        );
-}
+const App = () => {
+    return (
+        <div>
+            <Users/>
+        </div>
+    );
+};
 
 export default App;
-
