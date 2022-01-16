@@ -1,8 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-const Posts = () => {
+import Post from "../Post/Post";
+import {usersServices} from "../../services/api/users.services";
+
+const Posts = ({id}) => {
+    let [posts, setPosts] = useState([]);
+    useEffect(()=> {
+        usersServices().getPosts(id).then(post => setPosts(post));
+
+    },[id])
     return (
-        <div className={'super'}>
+        <div>
+            {
+                posts.map(post => <Post key={post.id} post={post}/>)
+            }
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import "./UserDetails.css"
 import UserDetail from "../userDetail/UserDetail";
-function UserDetails({user}) {
+function UserDetails({user,saveIdUsersForPost}) {
 
     let arr = [];
 
@@ -32,7 +32,7 @@ function UserDetails({user}) {
         <>
             <button onClick={onStartRec}>show details</button>
             <div>
-                <UserDetail userDetails={userDetails} id={user.id}/>
+                <UserDetail userDetails={userDetails} id={user.id} saveIdUsersForPost={saveIdUsersForPost}/>
             </div>
         </>
     );

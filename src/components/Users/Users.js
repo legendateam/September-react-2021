@@ -5,7 +5,7 @@ import User from "../User/User";
 import './Users.css'
 
 
-const Users = () => {
+const Users = ({saveIdUsersForPost}) => {
 
     const [users, setUsers] = useState([]);
 
@@ -16,7 +16,7 @@ const Users = () => {
     return (
         <div className={"users"}>
                 {
-                    users.map(user => <User key={user.id} user={user}/>)
+                    users.map(user => <User key={user.id} user={user} saveIdUsersForPost={saveIdUsersForPost}/>)
                 }
 
         </div>

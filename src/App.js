@@ -5,10 +5,18 @@ import Users from "./components/Users/Users";
 import Posts from "./components/Posts/Posts";
 
 const App = () => {
+
+    let [id, setID] = useState(null);
+
+    const saveIdUsersForPost = (id) => {
+        setID(id.target.value)
+    }
+
     return (
         <div className={'App'}>
-            <Users/>
-            <Posts/>
+            <Users saveIdUsersForPost={saveIdUsersForPost}/>
+
+            {id && <Posts id={id}/>}
         </div>
     );
 };
