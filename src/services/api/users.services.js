@@ -17,8 +17,6 @@ const usersServices = () => {
             .then(response => response.json())
         }
     }
-
-
 };
 
 export {usersServices};

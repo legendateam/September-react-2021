@@ -1,11 +1,7 @@
-import React, {createRef, useState} from 'react';
+import React, {useState} from 'react';
 
 import "./UserDetails.css"
-import {usersServices} from "../../services/users.services";
-import Posts from "../Posts/Posts";
 import UserDetail from "../userDetail/UserDetail";
-import createUserDetails from "../../services/createUserDetails.services";
-
 function UserDetails({user}) {
 
     let arr = [];

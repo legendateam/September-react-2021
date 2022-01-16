@@ -1,13 +1,8 @@
-import React, {createRef, useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
-import {usersServices} from "../../services/users.services";
-import Posts from "../Posts/Posts";
-import "./UserDetail.css"
-import showUserDetails from "../../services/createUserDetails.services";
-import createUserDetails from "../../services/createUserDetails.services";
-import createUserDetailsServices from "../../services/createUserDetails.services";
+import {usersServices} from "../../services/api/users.services";
 
-const UserDetail = ({userDetails,id,btn}) => {
+const UserDetail = ({userDetails,id}) => {
 
     let [posts, setPosts] = useState([]);
     const onGetPosts = (e) => {
@@ -19,10 +14,6 @@ const UserDetail = ({userDetails,id,btn}) => {
         setPosts([])
     };
 
-    // const onGetPosts = (e) => {
-    //     console.log(e.target.value);
-    // }
-
 
 
     const xxx = document.getElementsByClassName("super")[0];
@@ -32,16 +23,12 @@ const UserDetail = ({userDetails,id,btn}) => {
         xxx.innerHTML = ''
     }
 
-
-
-
     return (
         <div className={'UserDetail'}>
             {
                 userDetails && <p>{userDetails}<button onClick={onGetPosts} value={id}>show posts</button></p>
             }
 
-            {/*<Posts posts={posts}/>*/}
 
         </div>
     );

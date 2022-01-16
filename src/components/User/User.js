@@ -1,10 +1,7 @@
-import React, {createRef, useEffect, useState} from 'react';
+import React from 'react';
 
 
-import {postsServices} from "../../services/posts.services";
-import {usersServices} from "../../services/users.services";
 import "./User.css"
-import Posts from "../Posts/Posts";
 import UserDetails from "../userDetails/UserDetails";
 
 const User = ({user}) => {
