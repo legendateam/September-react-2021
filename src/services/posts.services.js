@@ -16,4 +16,4 @@ const postsServices = () => {
 
 };
 
-export {postsServices};
+export default postsServices;

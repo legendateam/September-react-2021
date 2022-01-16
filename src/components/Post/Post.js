@@ -1,11 +1,17 @@
 import React from 'react';
 
-const Post = () => {
-    return (
-        <div>
+import "./Post.css"
+import createUserDetails from "../../services/createUserDetails.services";
 
-        </div>
-    );
+const Post = ({post:{id,title,body}}) => {
+    // createUserDetails(id,title,body)
+   return (
+          <div className={"post"}>
+             <h3>{id}) {title}</h3>
+             {body}
+          </div>
+   )
+
 };
 
 export default Post;

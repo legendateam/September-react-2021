@@ -1,0 +1,9 @@
+button {
+    width: fit-content;
+    height: 27px;
+}
+p {
+    width: 500px;
+    margin-left: 120%;
+    box-sizing: border-box;
+}
