@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 
-const Header = () => {
+const Header = ({filterUsers}) => {
 
     const [form, setForm] = useState({name: '', username: '', email: ''});
     const onFormSubmit = e => {
         e.preventDefault();
-        console.log(form);
+        filterUsers(form)
     };
 
     const onChangeLogin = e => {
-        setForm({...form, [e.target.name]: e.target.value})
+        setForm({...form, [e.target.name]: e.target.value});
     };
 
     return (
