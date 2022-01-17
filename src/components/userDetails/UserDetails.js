@@ -5,9 +5,9 @@ import UserDetail from "../userDetail/UserDetail";
 
 function UserDetails({user, saveIdUsersForPost}) {
 
-    let arr = [];
+    const arr = [];
 
-    let [userDetails, setUserDetails] = useState(null);
+    const [userDetails, setUserDetails] = useState(null);
 
     const iterObj = (objects) => {
         for (const object in objects) {

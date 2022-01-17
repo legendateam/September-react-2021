@@ -7,7 +7,6 @@ const Posts = ({id}) => {
     let [posts, setPosts] = useState([]);
     useEffect(() => {
         usersServices().getPosts(id).then(post => setPosts(post));
-
     }, [id])
     return (
         <div>
