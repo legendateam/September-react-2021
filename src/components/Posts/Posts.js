@@ -5,10 +5,10 @@ import {usersServices} from "../../services/api/users.services";
 
 const Posts = ({id}) => {
     let [posts, setPosts] = useState([]);
-    useEffect(()=> {
+    useEffect(() => {
         usersServices().getPosts(id).then(post => setPosts(post));
 
-    },[id])
+    }, [id])
     return (
         <div>
             {

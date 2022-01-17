@@ -1,6 +1,5 @@
 import urls from "./urls";
 
-
 const postsServices = () => {
     return {
         getAll: () => {
@@ -13,7 +12,6 @@ const postsServices = () => {
                 .then(response => response.json())
         }
     }
-
 };
 
 export default postsServices;

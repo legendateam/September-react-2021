@@ -1,9 +1,7 @@
 import urls from "./urls";
 
-
 const usersServices = () => {
     return {
-
         getAll: () => {
             return fetch(urls.usersURL)
                 .then(response => response.json())

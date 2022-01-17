@@ -6,7 +6,7 @@ import Posts from "./components/Posts/Posts";
 
 const App = () => {
 
-    let [id, setID] = useState(null);
+    const [id, setID] = useState(null);
 
     const saveIdUsersForPost = (id) => {
         setID(id.target.value)

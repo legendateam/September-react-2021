@@ -4,7 +4,6 @@ import {usersServices} from "../../services/api/users.services";
 import User from "../User/User";
 import './Users.css'
 
-
 const Users = ({saveIdUsersForPost}) => {
 
     const [users, setUsers] = useState([]);
@@ -18,7 +17,6 @@ const Users = ({saveIdUsersForPost}) => {
                 {
                     users.map(user => <User key={user.id} user={user} saveIdUsersForPost={saveIdUsersForPost}/>)
                 }
-
         </div>
     );
 };
