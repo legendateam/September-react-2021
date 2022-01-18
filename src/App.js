@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import './App.css';
 import Header from "./components/Header/Header";
 import Users from "./components/Body/Users";
-import usersCervices from "./components/services/api/users.cervices";
+import usersCervices from "./services/api/users.cervices";
 
 const App = () => {
     const [users, setUsers] = useState([]);
