@@ -1,0 +1,23 @@
+.list_detail {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    padding-top: 20px;
+}
+.list_detail button {
+    margin-top: 15px;
+}
+ol,ul {
+    list-style: none;
+    width: 150px;
+    padding: 0;
+    margin: 0;
+}
+.user_details-btn {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+.user_details {
+    width: 800px;
+}

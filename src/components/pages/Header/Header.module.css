@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgrey;
+    height: 70px;
+}
+.header__button {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 50%;
+}
+.wrapper {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    align-items: center;
+}
+a button {
+    font-size: 20px;
+}
+.wrapper img {
+    height: 80%;
+    display: flex;
+    justify-content: start;
+    cursor: pointer;
+}
