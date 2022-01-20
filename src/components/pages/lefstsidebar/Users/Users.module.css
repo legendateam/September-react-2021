@@ -1,4 +1,5 @@
 .users {
     display: flex;
-    column-gap: 20vw;
+    padding-left: 20px;
+    column-gap: 15vw;
 }

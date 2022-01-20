@@ -12,13 +12,15 @@ const Posts = () => {
         postsServices.getAll().then(post => setPosts([...post]))
     },[])
     return (
-        <div className={css.posts}>
-            <div>
+        <div className={css.lefsidebar__posts}>
+            <div className={css.posts}>
                 {
                     posts.map(post => <Post key={post.id} post={post}/>)
                 }
             </div>
-            <Outlet/>
+            <div className={css.posts__detail}>
+                <Outlet/>
+            </div>
         </div>
     );
 };

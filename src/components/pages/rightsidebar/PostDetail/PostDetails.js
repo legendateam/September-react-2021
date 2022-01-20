@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link, Outlet, useParams} from "react-router-dom";
+
 import {postsServices} from "../../../../services/posts.services";
 
 const PostDetails = () => {
@@ -14,9 +15,17 @@ const PostDetails = () => {
     return (
         <div>
             <div>
-                {detail.id} {detail.userId} {detail.title} {detail.body}
+                <h4>id:{detail.id} --- detail.userId: {detail.userId}</h4>
+                <p>
+                    {detail.title}
+                </p>
+                <p>
+                    {detail.body}
+                </p>
             </div>
-            <Link to={'comments'}><button>show comments</button></Link>
+            <div>
+                <Link to={'comments'}><button>show comments</button></Link>
+            </div>
             <Outlet/>
         </div>
     );

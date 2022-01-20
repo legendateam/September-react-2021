@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import './Details.css'
 
@@ -50,10 +50,11 @@ const Details = ({detail}) => {
 
             <div className={'user_details-btn'}>
                 <Link to={'posts'}>
-                    <button>show posts</button>
+                    <button onClick={(e)=> {
+                        console.log(e);
+                    }}>show posts</button>
                 </Link>
             </div>
-            <Outlet/>
         </div>
     );
 };

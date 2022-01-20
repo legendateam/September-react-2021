@@ -12,7 +12,6 @@ const Wrap = () => {
             <div>
                 <Outlet/>
             </div>
-
         </div>
     );
 };

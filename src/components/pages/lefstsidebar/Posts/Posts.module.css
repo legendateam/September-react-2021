@@ -1,5 +1,13 @@
-.posts {
+.lefsidebar__posts {
     display: flex;
-    column-gap: 120px;
+    padding-left: 20px;
+    column-gap: 15vw;
 }
+.posts {
+    width: 30vw;
+}
+.posts__detail {
+    width: 700px;
+}
+
 

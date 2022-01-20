@@ -1,0 +1,6 @@
+.userposts {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
