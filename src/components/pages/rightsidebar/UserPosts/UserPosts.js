@@ -5,14 +5,13 @@ import {usersServices} from "../../../../services/users.services";
 import UserPost from "../UserPost/UserPost";
 import './UserPosts.css'
 
-const UserPosts = ({getState}) => {
+const UserPosts = () => {
     const params = useParams();
     const id = params.id;
     const [posts, setPosts] = useState([]);
 
     useEffect(()=> {
         usersServices.getPosts(id).then(post => setPosts(post))
-        getState(posts);
     },[id])
 
     return (

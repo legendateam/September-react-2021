@@ -5,16 +5,14 @@ import './App.css'
 import {Wrap, Users, UserDetails, UserPosts, Posts, PostDetails, Comments} from './index'
 
 const App = () => {
-    const getState = state => state;
-
     return (
         <div>
             <Routes>
                 <Route path={'/'} element={<Wrap/>}>
 
                     <Route path={'users'} element={<Users/>}>
-                        <Route path={':id'} element={<UserDetails getState={getState}/>}>
-                            <Route path={'posts'} element={<UserPosts getState={getState}/>}/>
+                        <Route path={':id'} element={<UserDetails/>}>
+                            <Route path={'posts'} element={<UserPosts/>}/>
                             </Route>
                     </Route>
 
