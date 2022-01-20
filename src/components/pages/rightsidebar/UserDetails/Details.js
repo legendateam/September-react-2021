@@ -50,9 +50,7 @@ const Details = ({detail}) => {
 
             <div className={'user_details-btn'}>
                 <Link to={'posts'}>
-                    <button onClick={(e)=> {
-                        console.log(e);
-                    }}>show posts</button>
+                    <button>show posts</button>
                 </Link>
             </div>
         </div>

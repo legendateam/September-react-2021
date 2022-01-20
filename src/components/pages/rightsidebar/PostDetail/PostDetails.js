@@ -1,31 +1,29 @@
 import React, {useEffect, useState} from 'react';
-import {Link, Outlet, useParams} from "react-router-dom";
+import {Outlet, useLocation, useParams} from "react-router-dom";
 
 import {postsServices} from "../../../../services/posts.services";
+import Details from "./Details";
 
 const PostDetails = () => {
+    const location = useLocation();
+    const state = location.state;
+    console.log(state);
+
     const params = useParams();
     const id = params.id;
 
-    const [detail, setDetail] = useState({});
+    const [details, setDetails] = useState({});
 
     useEffect(()=> {
-       postsServices.getOne(id).then(post => setDetail(post))
+        if(!state) {
+            postsServices.getOne(id).then(post => setDetails(post))
+        }
+        setDetails(state)
     },[id])
+
     return (
         <div>
-            <div>
-                <h4>id:{detail.id} --- detail.userId: {detail.userId}</h4>
-                <p>
-                    {detail.title}
-                </p>
-                <p>
-                    {detail.body}
-                </p>
-            </div>
-            <div>
-                <Link to={'comments'}><button>show comments</button></Link>
-            </div>
+            <Details details={details}/>
             <Outlet/>
         </div>
     );

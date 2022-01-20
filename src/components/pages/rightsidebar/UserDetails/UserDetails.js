@@ -1,16 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import {Outlet, useParams} from "react-router-dom";
+import {Outlet, useLocation, useParams} from "react-router-dom";
 
 import {usersServices} from "../../../../services/users.services";
 import './Details.css'
 import Details from "./Details";
 
 const UserDetails = () => {
+    const location = useLocation();
+    const state = location.state;
+
     const [detail, setDetail] = useState(null);
     const params = useParams();
     const id = params.id;
+
     useEffect(()=> {
-       usersServices.getOne(id).then(user => setDetail(user))
+        if(!state) {
+            usersServices.getOne(id).then(user => setDetail(user))
+        }
+        setDetail(state)
     },[id])
     return (
         <div className={'user_details'}>
