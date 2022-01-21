@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Outlet, useLocation, useParams} from "react-router-dom";
 
 import {postsServices} from "../../../../services/posts.services";
-import Details from "./Details";
+import Details from './Details';
 
 const PostDetails = () => {
     const location = useLocation();
