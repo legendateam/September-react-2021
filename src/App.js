@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 
 import './App.css'
-import {Wrap, Users, UserDetails, UserPosts, Posts, PostDetails, Comments} from './index'
+import {Wrap, Users, UserDetails, UserPosts, Posts, PostDetails, Comments, Albums, Photos} from './index'
 
 const App = () => {
     return (
@@ -13,6 +13,9 @@ const App = () => {
                     <Route path={'users'} element={<Users/>}>
                         <Route path={':id'} element={<UserDetails/>}>
                             <Route path={'posts'} element={<UserPosts/>}/>
+                        </Route>
+                        <Route path={':id/albums'} element={<Albums/>}>
+                            <Route path={':albumId/photos'} element={<Photos/>}/>
                         </Route>
                     </Route>
 

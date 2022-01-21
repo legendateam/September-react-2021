@@ -2,3 +2,12 @@ a {
     text-decoration-line: none;
     color: black;
 }
+.user_btn_albums {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.user_btn_albums button {
+    width: fit-content;
+}

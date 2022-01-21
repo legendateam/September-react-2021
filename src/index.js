@@ -11,6 +11,8 @@ export * from './components/pages/rightsidebar/PostDetail/PostDetails';
 export * from './components/pages/Wrap/Wrap';
 export * from './components/pages/rightsidebar/UserPosts/UserPosts';
 export * from './components/pages/rightsidebar/Comments/Comments';
+export * from './components/pages/rightsidebar/Albums/Albums';
+export * from './components/pages/rightsidebar/Photos/Photos'
 
 ReactDOM.render(
   <React.StrictMode>
