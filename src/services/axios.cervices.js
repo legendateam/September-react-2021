@@ -1,6 +1,6 @@
-const axios = require("axios");
+import axios from "axios";
 
-const {baseURL} = require("../configs/urls");
+import {baseURL} from "../configs/urls";
 
 const axiosInstance = axios.create({baseURL});
 

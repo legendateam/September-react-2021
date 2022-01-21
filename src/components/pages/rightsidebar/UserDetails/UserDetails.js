@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Outlet, useLocation, useParams} from "react-router-dom";
+import {Outlet, useLocation, useParams} from 'react-router-dom';
 
-import {usersServices} from "../../../../services/users.services";
+import {usersServices} from '../../../../services/users.services';
 import './Details.css'
-import Details from "./Details";
+import Details from './Details';
 
 const UserDetails = () => {
     const location = useLocation();

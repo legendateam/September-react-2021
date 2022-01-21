@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useParams} from 'react-router-dom';
 
-import {usersServices} from "../../../../services/users.services";
-import UserPost from "../UserPost/UserPost";
+import {usersServices} from '../../../../services/users.services';
+import UserPost from '../UserPost/UserPost';
 import './UserPosts.css'
 
 const UserPosts = () => {

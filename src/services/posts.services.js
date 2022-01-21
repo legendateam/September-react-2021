@@ -1,5 +1,5 @@
-import {axiosInstance} from "./axios.cervices";
-import {urls} from "../configs/urls";
+import {urls} from '../configs/urls';
+import {axiosInstance} from './axios.cervices';
 
 export const postsServices = {
     getAll: () => axiosInstance.get(urls.posts).then(reposnse => reposnse.data),

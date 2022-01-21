@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Outlet, useLocation} from "react-router-dom";
+import {Outlet} from 'react-router-dom';
 
 import css from './Users.module.css'
 import {usersServices} from "../../../../services/users.services";

@@ -1,6 +1,6 @@
-import {axiosInstance} from "./axios.cervices";
+import {axiosInstance} from './axios.cervices';
 
-import {urls} from "../configs/urls";
+import {urls} from '../configs/urls';
 
 export const usersServices = {
     getAll: () => axiosInstance.get(urls.users).then(response => response.data),
