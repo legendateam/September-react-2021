@@ -1,0 +1,14 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px;
+}
+.navigate__button_top {
+    display: flex;
+    justify-content: end;
+    padding-right: 200px;
+}
+.navigate__button_top button {
+    width: 150px;
+}
