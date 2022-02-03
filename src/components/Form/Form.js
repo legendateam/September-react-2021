@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
-import {Outlet} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+
+import './Form.css'
 import {addCarThunk, updateCarThunk} from "../../store/carSlice";
 
 const Form = () => {
@@ -34,7 +36,14 @@ const Form = () => {
                 <label>Year:<input type="text" {...register('year')}/></label>
                 <button>{id? 'UPDATE': 'SAVE'}</button>
             </form>
+            <hr/>
             <Outlet/>
+
+            <div className={'linksUsersPostsComments__button'}>
+                <Link to={'users'}><button>users</button></Link>
+                <Link to={'posts'}><button>posts</button></Link>
+                <Link to={'comments'}><button>comments</button></Link>
+            </div>
         </div>
     );
 };

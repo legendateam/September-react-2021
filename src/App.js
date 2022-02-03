@@ -1,7 +1,7 @@
 import "./App.css";
 import {Route, Routes} from "react-router-dom";
 
-import {Cars, Form} from "./components";
+import {Cars, Comments, Form, Posts, Users} from "./components";
 
 function App() {
         return (
@@ -9,6 +9,10 @@ function App() {
                 <Routes>
                     <Route path={'/'} element={<Form/>}>
                         <Route index element={<Cars/>}/>
+
+                        <Route path={'users'} element={<Users/>}/>
+                        <Route path={'posts'} element={<Posts/>}/>
+                        <Route path={'comments'} element={<Comments/>}/>
                     </Route>
                 </Routes>
             </div>

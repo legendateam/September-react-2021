@@ -1,8 +1,15 @@
-import axiosInstance from "./axiosServices";
+import {axiosJsonPlaceHolder} from "./axiosServices";
+
 import {urls} from "../configs";
 
 const usersCervices = {
-    getAll: async () => await axiosInstance.get(urls.users),
-    getOneById: async (id) => await axiosInstance.get(`${urls.cars}/${id}`)
+    getAll: async () => {
+        const users = await axiosJsonPlaceHolder.get(urls.users);
+        return users.data
+    },
+    getOneById: async (id) => {
+        const user = await axiosJsonPlaceHolder.get(`${urls.users}/${id}`);
+        return user.data
+    }
 }
 export {usersCervices}

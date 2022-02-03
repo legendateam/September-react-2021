@@ -1,0 +1,13 @@
+.linksUsersPostsComments__button {
+    display: flex;
+    height: 100px;
+    gap: 20px;
+    align-items: center;
+}
+form {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}

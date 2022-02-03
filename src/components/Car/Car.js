@@ -1,19 +1,29 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
 
-import {deleteCarThunk, updateCar} from "../../store/carSlice";
+import './Car.css'
+import {deleteCarThunk, getIndex, updateCar} from "../../store/carSlice";
 
 const Car = ({car, index}) => {
     const {id,model, price, year} = car;
     const dispatch = useDispatch();
 
+    const onUpdate = () => {
+        dispatch(updateCar({id,car}));
+        dispatch(getIndex({index}))
+    }
+
+    const onDelete = () => {
+        dispatch(deleteCarThunk({id, index}))
+    }
+
     return (
-        <div>
-            <div>Model: {model}</div>
-            <div>Price: {price}</div>
-            <div>Year: {year}</div>
-            <button onClick={()=> dispatch(updateCar({car, index}))}>update</button>
-            <button onClick={()=> dispatch(deleteCarThunk({id, index}))}>delete</button>
+        <div className={'car'}>
+            <div><span>Model:</span> {model}</div>
+            <div><span>Price:</span> {price}</div>
+            <div><span>Year:</span> {year}</div>
+            <button onClick={()=>onUpdate()}>update</button>
+            <button onClick={()=>onDelete()}>delete</button>
         </div>
     );
 };

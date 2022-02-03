@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+
+import './Cars.css'
 import {getAllCarsThunk} from "../../store/carSlice";
 import {Car} from "../Car/Car";
 
@@ -12,8 +14,10 @@ const Cars = () => {
     }, [])
 
     return (
-        <div>
-            {cars.map((car, i) => <Car key={car.id} car={car} index={i}/>)}
+        <div className={'cars'}>
+            {
+                cars.map((car, i) => <Car key={car.id} car={car} index={i}/>)
+            }
         </div>
     );
 };

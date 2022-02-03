@@ -4,6 +4,7 @@ import {carsCervices} from "../services";
 const initialState = {
     cars: [],
     carUpdate: {},
+    index: null,
     status: null,
     error: null
 }
@@ -34,10 +35,10 @@ const addCarThunk = createAsyncThunk(
 
 const updateCarThunk = createAsyncThunk(
     'carSlice/updateCarThunk',
-    async ({car, id},{dispatch, rejectWithValue}) => {
+    async ({id, car},{rejectWithValue}) => {
         try{
-            await carsCervices.updateById(id, car)
-            dispatch(updateCar({car:{...car,id}}))
+            const carUpdate = await carsCervices.updateById(id, car);
+            return {carUpdate}
         } catch (e) {
             rejectWithValue(e.message)
         }
@@ -64,13 +65,13 @@ const carSlice = createSlice({
             state.cars.push(action.payload.car)
         },
         updateCar: (state, action) => {
-            console.log(action.payload.index);
-            console.log(action.payload.car);
-            state.cars.splice(action.payload.index, 1, action.payload.car)
             state.carUpdate = action.payload.car
         },
         deleteCar: (state, action) => {
             state.cars.splice(action.payload.index, 1)
+        },
+        getIndex: (state, action) => {
+            state.index = action.payload.index
         }
     },
     extraReducers: {
@@ -93,15 +94,17 @@ const carSlice = createSlice({
             state.error = action.payload
         },
 
-        [updateCarThunk.fulfilled]: state => {
+        [updateCarThunk.fulfilled]: (state, action) => {
           state.status = 'fulfilled';
           state.error = null;
+          state.cars.splice(state.index, 1, action.payload.carUpdate);
           state.carUpdate = {}
         },
 
         [updateCarThunk.rejected]: (state, action) => {
             state.status = 'rejected';
-            state.error = action.payload
+            state.carUpdate = {}
+            state.error = action.payload;
         },
 
         [deleteCarThunk.rejected]: (state, action) => {
@@ -112,5 +115,5 @@ const carSlice = createSlice({
 })
 
 export const carReducer = carSlice.reducer;
-export const {addCar, updateCar, deleteCar} = carSlice.actions;
+export const {addCar, updateCar, deleteCar, getIndex} = carSlice.actions;
 export {getAllCarsThunk, addCarThunk, deleteCarThunk,updateCarThunk}
