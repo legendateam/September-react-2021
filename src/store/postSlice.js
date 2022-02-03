@@ -14,7 +14,7 @@ const getAllPosts = createAsyncThunk(
             const posts = await postsCervices.getALL();
             dispatch(setAllPosts({posts}))
         } catch (e) {
-            rejectWithValue(e.message)
+            return rejectWithValue(e.message)
         }
     }
 )
@@ -31,6 +31,9 @@ const postSlice = createSlice({
         [getAllPosts.pending]: state => {
             state.status = 'pending'
             state.error = null
+        },
+        [getAllPosts.fulfilled]: state => {
+            state.status = 'fulfilled'
         },
         [getAllPosts.rejected]: (state, action) => {
             state.status = 'rejected'

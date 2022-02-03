@@ -16,7 +16,7 @@ const getAllCarsThunk = createAsyncThunk(
             const cars = await carsCervices.getAll();
             return {cars}
         } catch (e) {
-            rejectWithValue(e.message)
+            return rejectWithValue(e.message)
         }
     }
 )
@@ -28,7 +28,7 @@ const addCarThunk = createAsyncThunk(
             const newCar = await carsCervices.create(car)
             dispatch(addCar({car:newCar}))
         } catch (e) {
-            rejectWithValue(e.message)
+            return rejectWithValue(e.message)
         }
     }
 )
@@ -40,7 +40,7 @@ const updateCarThunk = createAsyncThunk(
             const carUpdate = await carsCervices.updateById(id, car);
             return {carUpdate}
         } catch (e) {
-            rejectWithValue(e.message)
+            return rejectWithValue(e.message)
         }
     }
 )
@@ -52,7 +52,7 @@ const deleteCarThunk = createAsyncThunk(
              await carsCervices.deleteById(id)
              dispatch(deleteCar({index}))
          } catch (e) {
-             rejectWithValue(e.message)
+             return rejectWithValue(e.message)
          }
     }
 )
@@ -62,7 +62,7 @@ const carSlice = createSlice({
     initialState,
     reducers: {
         addCar: (state, action) => {
-            state.cars.push(action.payload.car)
+            state.cars.push(action.payload.car);
         },
         updateCar: (state, action) => {
             state.carUpdate = action.payload.car
@@ -81,7 +81,6 @@ const carSlice = createSlice({
         },
         [getAllCarsThunk.fulfilled]: (state, action) => {
             state.status = 'fulfilled';
-            state.error = null;
             state.cars = action.payload.cars
         },
         [getAllCarsThunk.rejected]: (state, action) => {
@@ -89,8 +88,15 @@ const carSlice = createSlice({
             state.error = action.payload
         },
 
+        [addCarThunk.pending]: state => {
+            state.status = 'pending';
+        },
+        [addCarThunk.fulfilled]: state => {
+            state.status = 'fulfilled';
+            state.error = null
+        },
         [addCarThunk.rejected]: (state, action) => {
-            state.status = 'rejected'
+            state.status = 'rejected';
             state.error = action.payload
         },
 
@@ -100,13 +106,16 @@ const carSlice = createSlice({
           state.cars.splice(state.index, 1, action.payload.carUpdate);
           state.carUpdate = {}
         },
-
         [updateCarThunk.rejected]: (state, action) => {
             state.status = 'rejected';
             state.carUpdate = {}
             state.error = action.payload;
         },
 
+        [deleteCarThunk.fulfilled]: state => {
+            state.status = 'fulfilled'
+            state.erorr = null
+        },
         [deleteCarThunk.rejected]: (state, action) => {
             state.status = 'rejected';
             state.error = action.payload

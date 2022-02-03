@@ -14,7 +14,7 @@ const getAllUsers = createAsyncThunk(
             const users = await usersCervices.getAll();
             return {users}
         } catch (e) {
-            rejectWithValue(e.message)
+            return rejectWithValue(e.message)
         }
     }
 )

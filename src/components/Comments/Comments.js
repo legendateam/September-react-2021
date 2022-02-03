@@ -7,7 +7,7 @@ import {Comment} from "../Comment/Comment";
 
 
 const Comments = () => {
-    const {comments} = useSelector(state => state['commentReducer']);
+    const {comments, status, error} = useSelector(state => state['commentReducer']);
     const dispatch = useDispatch();
 
     useEffect(()=> {
@@ -16,6 +16,8 @@ const Comments = () => {
 
     return (
         <div>
+            {status === 'pending' && <h1>Loading...</h1>}
+            {status === 'rejected' && <h1>{error}</h1>}
             {
                 comments.map(comment => <Comment key={comment.id} comment={comment}/>)
             }

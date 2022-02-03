@@ -14,7 +14,7 @@ const getAllComments = createAsyncThunk(
             const comments = await commentsCervices.getAll();
             return {comments}
         } catch (e) {
-            rejectWithValue(e.message)
+            return rejectWithValue(e.message)
         }
     }
 )
