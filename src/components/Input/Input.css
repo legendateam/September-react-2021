@@ -1,0 +1,12 @@
+.newData__input-child form {
+    gap: 10px;
+}
+.active {
+    text-decoration: line-through;
+}
+.disable {
+    text-decoration: none;
+}
+/*input:checked + h2 {*/
+/*    text-decoration: line-through;*/
+/*}*/
