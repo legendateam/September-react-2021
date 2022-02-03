@@ -18,7 +18,7 @@ const Cars = () => {
         <div className={'main'}>
             {cars.map((car, index) => <Car key={car.id} car={car} index={index}/>)}
             <div className={'navigate__button_top'}>
-                <Link to={'#'}><button>top</button></Link>
+                <a href="#"><button>top</button></a>
             </div>
         </div>
     );
