@@ -4,8 +4,9 @@ import {carsCervices} from "../services";
 const initialState = {
     cars: [],
     update: {},
+    index: null,
     status: null,
-    error: null,
+    error: null
 }
 
 export const getAllCars = createAsyncThunk(
@@ -25,7 +26,7 @@ export const addCarThunk = createAsyncThunk(
     async ({car}, {dispatch, rejectWithValue}) => {
         try {
             const newCar = await carsCervices.create(car);
-            dispatch(addCar({car: newCar}))
+            dispatch(addCar({car:newCar}))
         } catch (e) {
             rejectWithValue(e.message)
         }
@@ -46,10 +47,10 @@ export const deleteCarThunk = createAsyncThunk(
 
 export const updateCarThunk = createAsyncThunk(
     'carSlice/updateCarThunk',
-    async ({id,car}, {dispatch, rejectedWithValue}) => {
+    async ({id,car}, {rejectedWithValue}) => {
         try{
-            dispatch(updateCar({car: {...car, id}}))
-            return await carsCervices.updateById(id, car);
+            const patchCar = await carsCervices.updateById(id, car);
+            return {patchCar}
         }catch (e) {
             rejectedWithValue(e.message)
         }
@@ -64,15 +65,17 @@ const carSlice = createSlice({
             state.cars.push(action.payload.car)
         },
         updateCar: (state, action) => {
-            state.cars.splice(action.payload.index, 1, action.payload.car);
             state.update = action.payload.car
         },
         deleteCar: (state, action) => {
-           state.cars.splice(action.payload.index, 1)
+            state.cars.splice(action.payload.index, 1)
+        },
+        getIndex: (state, action) => {
+            state.index = action.payload.index
         }
     },
     extraReducers: {
-        [getAllCars.pending]: (state, action) => {
+        [getAllCars.pending]: state => {
             state.status = 'pending'
             state.error = null
         },
@@ -86,11 +89,11 @@ const carSlice = createSlice({
             state.error = action.payload
         },
 
-        [addCarThunk.pending]: (state, action) => {
+        [addCarThunk.pending]: state => {
             state.status = 'pending'
             state.error = null
         },
-        [addCarThunk.fulfilled]: (state, action) => {
+        [addCarThunk.fulfilled]: state => {
             state.status = 'fulfilled';
             state.error = null
         },
@@ -99,11 +102,11 @@ const carSlice = createSlice({
             state.error = action.payload
         },
 
-        [deleteCarThunk.pending]: (state, action) => {
+        [deleteCarThunk.pending]: state => {
             state.status = 'pending';
             state.error = null
         },
-        [deleteCarThunk.fulfilled]: (state, action) => {
+        [deleteCarThunk.fulfilled]: state => {
             state.status = 'fulfilled';
             state.error = null;
         },
@@ -111,14 +114,15 @@ const carSlice = createSlice({
             state.status = 'rejected';
             state.error = action.payload
         },
-        [updateCarThunk.pending]: (state, action) => {
+        [updateCarThunk.pending]: state => {
             state.status = 'pending';
+            state.update = {};
             state.error = null
         },
         [updateCarThunk.fulfilled]: (state, action) => {
             state.status = 'fulfilled';
             state.error = null;
-            state.update = {}
+            state.cars.splice(state.index, 1 , action.payload.patchCar);
         },
         [updateCarThunk.rejected]: (state, action) => {
             state.status = 'rejected';
@@ -129,6 +133,6 @@ const carSlice = createSlice({
 
 const carReducer = carSlice.reducer;
 
-export const {addCar, deleteCar, updateCar} = carSlice.actions
+export const {addCar, deleteCar, updateCar, getIndex} = carSlice.actions
 
 export default carReducer

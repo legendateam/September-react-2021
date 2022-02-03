@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
 
 import './Cars.css'
 import {Car} from "../Car/Car";
 import {getAllCars} from "../../store/car.slice";
 
 const Cars = () => {
-    const {cars} = useSelector(state => state.carReducer);
+    const {cars,index} = useSelector(state => state.carReducer);
     const dispatch = useDispatch();
 
     useEffect(()=> {
