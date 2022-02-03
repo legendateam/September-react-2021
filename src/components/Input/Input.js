@@ -5,7 +5,7 @@ import './Input.css'
 import {checkedBox, deleteInput} from "../../store/input.slice";
 import {useForm} from "react-hook-form";
 
-const Input = ({input: {id, todo, status}}, index) => {
+const Input = ({input: {id, todo, status}, index}) => {
     const {register,handleSubmit,watch} = useForm();
 
     const dispatch = useDispatch();

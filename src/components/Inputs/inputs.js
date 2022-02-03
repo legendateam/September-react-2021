@@ -6,6 +6,7 @@ import Input from "../Input/Input";
 
 const Inputs = () => {
     const {inputs} = useSelector(state => state['inputReducer']);
+    console.log(inputs);
 
     return (
         <div className={'newData__input'}>
