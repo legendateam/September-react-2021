@@ -1,6 +1,6 @@
 import {IUser} from "./interfaces/user.interfaces";
 
-const user = {
+const user:IUser = {
     name:"Max",
     age:18,
     gender:'male'
@@ -20,4 +20,4 @@ function incAge(someUser:IUser, inc:number):IUser {
 
 console.log(sum(1, 2));
 showSum(2,3);
-incAge(user, 2)
+incAge(user,2)
